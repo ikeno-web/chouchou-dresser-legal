@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>chouchou Dresser — 法務情報</title>
+<meta name="description" content="chouchou Dresser のプライバシーポリシーと利用規約。ローカルファースト設計、外部送信はYahoo!ショッピングAPI（JANコードのみ・任意）とAdMob（NPA）のみ。" />
+<style>
+  :root {
+    --base: #FCFBFA;
+    --ink: #1E1E1E;
+    --ink-soft: #6B6464;
+    --rose: #E2AFAF;
+    --lav: #E8DFFF;
+    --fill: #F4ECEC;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--base); color: var(--ink); margin: 0; }
+  body {
+    font-family: "Yu Gothic", "游ゴシック", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+    line-height: 1.8;
+    padding: 0 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 0 96px; }
+  header.brand { text-align: center; padding: 24px 0 8px; }
+  header.brand h1 {
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-style: italic; font-weight: 500;
+    font-size: clamp(28px, 6vw, 40px);
+    color: var(--ink); margin: 0;
+  }
+  header.brand p { color: var(--ink-soft); margin: 4px 0 0; font-size: 13px; }
+  nav.toc {
+    display: flex; gap: 8px; justify-content: center;
+    margin: 24px 0 32px;
+  }
+  nav.toc a {
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--fill); color: var(--ink);
+    text-decoration: none; font-size: 14px;
+  }
+  nav.toc a[aria-current="page"] { background: var(--rose); }
+  article { background: white; border-radius: 16px; padding: 32px clamp(16px, 4vw, 40px); box-shadow: 0 1px 2px rgba(60,40,50,0.04); }
+  article h2 { font-size: 22px; margin: 0 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--fill); }
+  article h3 { font-size: 16px; margin: 28px 0 8px; color: var(--ink); }
+  article p { margin: 8px 0; }
+  article ul { padding-left: 1.4em; }
+  article table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  article th, article td { border-bottom: 1px solid var(--fill); padding: 8px 6px; text-align: left; vertical-align: top; }
+  article th { color: var(--ink-soft); font-weight: 600; }
+  article a { color: #8a6b6b; }
+  footer.meta { margin-top: 32px; text-align: center; color: var(--ink-soft); font-size: 12px; }
+  .updated { color: var(--ink-soft); font-size: 13px; margin: 0 0 16px; }
+  .note { background: var(--lav); border-radius: 12px; padding: 12px 16px; font-size: 13px; margin: 16px 0; }
+  .switch { display: none; }
+  /* タブ切替（チェックボックスハック） */
+  #tab-pp:checked ~ nav.toc a.pp,
+  #tab-tos:checked ~ nav.toc a.tos { background: var(--rose); }
+  #tab-pp:checked ~ #content #pp,
+  #tab-tos:checked ~ #content #tos { display: block; }
+  #content > article { display: none; }
+</style>
+</head>
+<body>
+<input type="radio" class="switch" name="tab" id="tab-pp" checked />
+<input type="radio" class="switch" name="tab" id="tab-tos" />
+
+<div class="wrap">
+
+<header class="brand">
+  <h1>chouchou Dresser</h1>
+  <p>あなただけのプライベートドレッサー</p>
+</header>
+
+<nav class="toc">
+  <label for="tab-pp"><a class="pp" href="#privacy">プライバシーポリシー</a></label>
+  <label for="tab-tos"><a class="tos" href="#terms">利用規約</a></label>
+</nav>
+
+<div id="content">
+
+<article id="pp">
+  <h2 id="privacy">プライバシーポリシー</h2>
+  <p class="updated">最終更新日: 2026年6月7日 / 事業者: NextCore Consulting</p>
+
+  <h3>1. 基本方針：ローカルファースト</h3>
+  <p>本アプリは <strong>ローカルファースト</strong> の設計です。利用者の入力データ（化粧品の情報、開封日、Look、肌コンディション、写真、設定など）は <strong>利用者の端末内のみに保存</strong> され、当社のサーバーには送信されません。アカウント登録もありません。</p>
+  <p>端末内のデータベースは <strong>SQLCipher による AES-256 暗号化</strong> で保護されており、暗号鍵は Android Keystore（OS の保護領域）に保管されます。</p>
+
+  <h3>2. 当社が収集しない情報</h3>
+  <ul>
+    <li>氏名、メールアドレス、電話番号、住所などの直接的な個人情報</li>
+    <li>アカウント情報（本アプリにはサインアップ機能がありません）</li>
+    <li>位置情報</li>
+    <li>連絡先、SMS、通話履歴、マイク音声、動画ファイル</li>
+    <li>利用者がアプリ内で入力したいかなる情報（化粧品名、写真、ブランド名、開封日、Look、肌コンディション、設定など）</li>
+  </ul>
+
+  <h3>3. 外部サービスへの送信が発生する場合</h3>
+  <p>以下のケースでは、最小限のデータが外部に送信されます。送信内容は <strong>利用者が明示的に操作したタイミングのみ</strong> で、自動送信は行いません。</p>
+
+  <h4>3.1 Yahoo! ショッピング JAN 照会（任意）</h4>
+  <p>利用者がバーコード読取後に「製品名を照会する」ボタンを <strong>明示的にタップした場合のみ</strong>、Yahoo! ショッピング API に <strong>JAN コード（数字13桁）のみ</strong> を送信します。氏名・端末識別子・位置情報・写真等は送信しません。</p>
+  <table>
+    <tr><th>提供元</th><td>ヤフー株式会社（Yahoo! ショッピング Web API）</td></tr>
+    <tr><th>送信先</th><td>https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch</td></tr>
+    <tr><th>送信内容</th><td>JAN コード（13桁の数字）と当社の Yahoo Client ID</td></tr>
+    <tr><th>受信内容</th><td>製品名（公開情報のみ）</td></tr>
+  </table>
+  <p>ヤフー株式会社のプライバシーポリシーが適用されます： <a href="https://privacy.yahoo.co.jp/" target="_blank" rel="noopener">https://privacy.yahoo.co.jp/</a></p>
+
+  <h4>3.2 広告配信（無料版）</h4>
+  <p>無料版では画面下に AdMob 広告バナーを表示します。当社は <strong>行動トラッキング配信を無効化</strong>（NPA: Non-Personalized Ads）しており、当該端末のコンテキストに依存しない汎用広告のみを表示します。</p>
+  <p>提供元: Google LLC（AdMob）。Google のプライバシーポリシー： <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+  <h3>4. 権限の利用目的</h3>
+  <table>
+    <tr><th>権限</th><th>用途</th><th>任意性</th></tr>
+    <tr><td>カメラ</td><td>バーコードスキャン、化粧品写真の撮影</td><td>任意（拒否でも基本機能は使えます）</td></tr>
+    <tr><td>写真ライブラリ</td><td>化粧品写真の選択、シェア画像の保存</td><td>任意</td></tr>
+    <tr><td>通知</td><td>開封 30 日前 / 7 日前の使い切り目安通知</td><td>任意（拒否でも基本機能は使えます）</td></tr>
+  </table>
+  <p>本アプリは以下の権限を <strong>要求しません</strong>：マイク音声、動画、位置情報、連絡先、SMS、通話履歴、ストレージ全体、画面オーバーレイ。</p>
+
+  <h3>5. データの保管・削除</h3>
+  <ul>
+    <li>入力データはすべて端末内 SQLCipher 暗号化 DB に保存されます。</li>
+    <li>利用者は <strong>「設定 → データ管理」</strong> から、いつでも全データを <strong>物理削除（復元不能）</strong> できます。</li>
+    <li>アプリをアンインストールすると、端末内のデータは Android OS の規約に従い削除されます。</li>
+    <li>当社サーバーには利用者データを保持していないため、当社側からの削除要請は不要です。</li>
+  </ul>
+
+  <h3>6. バックアップに関する注意</h3>
+  <ul>
+    <li>利用者は <strong>「設定 → バックアップ」</strong> から、暗号化された <code>.ccdb</code> ファイルをエクスポートできます。</li>
+    <li>バックアップは <strong>利用者が設定したパスワードで PBKDF2 + AES-256-GCM 暗号化</strong> されます。</li>
+    <li><strong>パスワードを失念した場合、当社を含め復号は不可能</strong> です。利用者ご自身でパスワードを安全に保管してください。</li>
+  </ul>
+
+  <h3>7. 子どもに関する事項</h3>
+  <p>本アプリは 18 歳以上の利用者を主な対象とします。13 歳未満の児童の個人情報を意図的に収集することはありません。</p>
+
+  <h3>8. 本ポリシーの変更</h3>
+  <p>本ポリシーを変更する場合は、本アプリ内（設定 → プライバシーポリシー）またはストア掲載ページにて改訂版を掲示します。</p>
+
+  <h3>9. お問い合わせ</h3>
+  <p>本ポリシーに関するお問い合わせは下記までお願いいたします。</p>
+  <p>NextCore Consulting<br />Eメール: <a href="mailto:ikeno@nextcore-consulting.com">ikeno@nextcore-consulting.com</a></p>
+</article>
+
+<article id="tos">
+  <h2 id="terms">利用規約</h2>
+  <p class="updated">最終更新日: 2026年6月7日 / 事業者: NextCore Consulting</p>
+
+  <h3>1. 本アプリの目的</h3>
+  <p>本アプリは、化粧品の <strong>棚卸し・開封日管理・Look 記録・在庫管理・色×質感の重複チェック</strong> を支援する <strong>個人用のメモツール</strong> です。本アプリは医療機器ではなく、皮膚科学的・医学的助言を提供するものではありません。</p>
+
+  <h3>2. 健康に関する免責</h3>
+  <ul>
+    <li>本アプリが表示する「使用期限の目安（PAO）」「使い切り予測」「マトリクス重複サイン」は、いずれも利用者が入力したデータに基づく <strong>目安</strong> であり、製品の安全性・品質・適合性を保証するものではありません。</li>
+    <li>化粧品の使用継続可否は、最終的に <strong>利用者ご自身の判断と、必要に応じて皮膚科医等の専門家への相談</strong> によって決定してください。</li>
+    <li>本アプリの「成分について（成分注意ペア）」表示は、一般的な化粧品成分の組み合わせに関する情報提供であり、医薬品的効能・効果を示唆するものではありません。</li>
+  </ul>
+
+  <h3>3. 第三者ブランド・商標</h3>
+  <ul>
+    <li>本アプリ内のブランドサジェスト機能で表示されるブランド名・製品名は、すべて <strong>各権利者に帰属</strong> します。</li>
+    <li>本アプリは各ブランド・メーカーから公式に承認・後援されたものではありません。</li>
+  </ul>
+
+  <h3>4. 禁止事項</h3>
+  <ul>
+    <li>リバースエンジニアリング、逆コンパイル、改変、または派生物の作成（適用法で明示的に認められた範囲を除く）</li>
+    <li>本アプリの動作を妨げる行為、過大な負荷を外部 API に与える行為</li>
+    <li>他の利用者または第三者の権利を侵害する用途での本アプリの利用</li>
+    <li>シェア画像機能で虚偽・誹謗中傷・差別的な内容を生成・配布する行為</li>
+  </ul>
+
+  <h3>5. バックアップ・データ復旧</h3>
+  <p>本アプリは利用者がエクスポートする暗号化バックアップ（.ccdb ファイル）を提供します。バックアップのパスワードは利用者が自身で設定・保管します。</p>
+  <p><strong>パスワードを失念した場合、当社を含めいかなる方法でも復号できません。</strong></p>
+
+  <h3>6. 広告（無料版）</h3>
+  <p>無料版では画面下に AdMob 広告が表示されます。広告は行動トラッキングを行わない <strong>NPA（Non-Personalized Ads）</strong> 設定で配信されます。</p>
+
+  <h3>7. アフィリエイト機能（補完）</h3>
+  <p>「探す」「もう一度買う」等のリンクは、楽天市場・Qoo10 等のアフィリエイト ID を含む検索 URL を生成する場合があります。購入時にアフィリエイト報酬が当社に支払われる可能性がありますが、購入価格に変更はありません。</p>
+
+  <h3>8. 知的財産</h3>
+  <p>本アプリのソースコード、デザイン、文言、UI、アイコンの著作権は当社または当社にライセンスを供与した権利者に帰属します。</p>
+
+  <h3>9. サービスの提供・変更・終了</h3>
+  <p>当社は、本アプリの仕様・機能を予告なく変更、または提供を終了する場合があります。</p>
+
+  <h3>10. 免責事項</h3>
+  <p>本アプリは「現状有姿（as-is）」で提供されます。当社は、本アプリの完全性・正確性・特定目的への適合性・無欠陥性について、明示・黙示を問わずいかなる保証も行いません。</p>
+
+  <h3>11. 準拠法・裁判管轄</h3>
+  <ul>
+    <li>本規約の準拠法は <strong>日本法</strong> とします。</li>
+    <li>本規約に関連する紛争は、<strong>東京地方裁判所</strong> を第一審の専属的合意管轄裁判所とします。</li>
+  </ul>
+
+  <h3>12. 本規約の変更</h3>
+  <p>当社は、利用者の事前承諾を得ずに本規約を変更することがあります。変更時は本アプリ内またはストア掲載ページで改訂版を掲示します。改訂後も本アプリの利用を継続した場合、変更後の本規約に同意したものとみなします。</p>
+</article>
+
+</div>
+
+<footer class="meta">
+  &copy; NextCore Consulting
+</footer>
+
+</div>
+</body>
+</html>
