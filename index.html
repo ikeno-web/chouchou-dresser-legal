@@ -53,11 +53,11 @@
   .updated { color: var(--ink-soft); font-size: 13px; margin: 0 0 16px; }
   .note { background: var(--lav); border-radius: 12px; padding: 12px 16px; font-size: 13px; margin: 16px 0; }
   .switch { display: none; }
-  /* タブ切替（チェックボックスハック） */
-  #tab-pp:checked ~ nav.toc a.pp,
-  #tab-tos:checked ~ nav.toc a.tos { background: var(--rose); }
-  #tab-pp:checked ~ #content #pp,
-  #tab-tos:checked ~ #content #tos { display: block; }
+  /* タブ切替（:has() で wrap 内の article を制御）。:has() は Chrome 105+/Safari 15.4+/Firefox 121+ 対応。 */
+  body:has(#tab-pp:checked)  nav.toc a.pp,
+  body:has(#tab-tos:checked) nav.toc a.tos { background: var(--rose); }
+  body:has(#tab-pp:checked)  #pp,
+  body:has(#tab-tos:checked) #tos { display: block; }
   #content > article { display: none; }
 </style>
 </head>
