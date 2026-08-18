@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>コスメの使用期限チェッカー | 開封後いつまで使える？ — chouchou Dresser</title>
+<meta name="description" content="マスカラ・リップ・ファンデなど、コスメの開封後の使用期限の目安を無料で計算。開封日を入れるだけ、登録不要・その場で結果がわかります。" />
+<link rel="canonical" href="https://ikeno-web.github.io/chouchou-dresser-legal/expiry-checker.html" />
+
+<!-- OGP（SNS でシェアされたときの見え方） -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="コスメの使用期限チェッカー — 開封後いつまで使える？" />
+<meta property="og:description" content="開封日を入れるだけで、使用期限の目安がすぐわかる無料ツール。" />
+<meta property="og:url" content="https://ikeno-web.github.io/chouchou-dresser-legal/expiry-checker.html" />
+<meta name="twitter:card" content="summary" />
+
+<!-- 構造化データ（検索結果のリッチ表示・FAQ） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "マスカラは開封後どのくらいで使い切るべき？",
+      "acceptedAnswer": { "@type": "Answer", "text": "一般的な目安は開封後3か月程度です。まつ毛や目もとに直接触れるため、コスメの中でも短めに見積もられることが多い分類です。液が乾いた、匂いが変わったなど気になる変化があれば目安より早めに使用を控えてください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "リップ・口紅の使用期限の目安は？",
+      "acceptedAnswer": { "@type": "Answer", "text": "一般的な目安は開封後6か月程度です。直接唇に触れるスティックタイプは、見た目に変化がなくても目安を意識しておくと安心です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "パウダーアイシャドウは長く使える？",
+      "acceptedAnswer": { "@type": "Answer", "text": "水分をほとんど含まないパウダー製品は比較的長く、一般的な目安は開封後12か月程度とされています。ただしブラシやチップの清潔さが保たれていることが前提です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "使用期限を過ぎたコスメはどうすればいい？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ここで示すのはあくまで一般的な参考情報です。保管環境や使い方によって状態は変わります。分離・変色・匂いの変化など気になる点があれば、目安に関わらず使用を控えてください。肌に異常を感じた場合は自己判断せず皮膚科などの専門家にご相談ください。" }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --base: #FCFBFA;
+    --ink: #1E1E1E;
+    --ink-soft: #6B6464;
+    --rose: #E2AFAF;
+    --lav: #E8DFFF;
+    --fill: #F4ECEC;
+    --fresh: #5BA67E;
+    --soon: #D9A441;
+    --expired: #9E9E9E;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--base); color: var(--ink); margin: 0; }
+  body {
+    font-family: "Yu Gothic", "游ゴシック", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+    line-height: 1.8;
+    padding: 0 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 0 96px; }
+
+  header.brand { text-align: center; padding: 16px 0 8px; }
+  header.brand h1 {
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-style: italic; font-weight: 500;
+    font-size: clamp(26px, 5.5vw, 36px);
+    color: var(--ink); margin: 0;
+  }
+  header.brand p { color: var(--ink-soft); margin: 6px 0 0; font-size: 13px; }
+
+  h2.page-title {
+    font-size: clamp(20px, 4.6vw, 26px);
+    text-align: center; margin: 28px 0 6px;
+  }
+  p.lead { text-align: center; color: var(--ink-soft); font-size: 14px; margin: 0 0 28px; }
+
+  .card {
+    background: #fff; border-radius: 16px;
+    padding: 28px clamp(16px, 4vw, 32px);
+    box-shadow: 0 1px 2px rgba(60,40,50,0.04);
+  }
+
+  fieldset { border: 0; padding: 0; margin: 0 0 24px; }
+  legend { font-size: 14px; font-weight: 600; margin-bottom: 10px; padding: 0; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 10px 16px; border-radius: 999px;
+    background: var(--fill); border: 1px solid transparent;
+    font-size: 14px; cursor: pointer; color: var(--ink);
+    font-family: inherit;
+  }
+  .chip[aria-pressed="true"] { background: var(--rose); border-color: #d59b9b; font-weight: 600; }
+  .chip:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
+
+  input[type="date"] {
+    width: 100%; padding: 12px 14px; font-size: 16px;
+    border: 1px solid #e3d8d8; border-radius: 12px;
+    background: #fff; color: var(--ink); font-family: inherit;
+  }
+  input[type="date"]:focus-visible { outline: 2px solid var(--rose); outline-offset: 1px; border-color: var(--rose); }
+
+  #result { margin-top: 8px; }
+  .result-box {
+    border-radius: 14px; padding: 20px; text-align: center;
+    background: var(--fill);
+  }
+  .result-box .label { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  .result-box .date { font-size: clamp(22px, 5vw, 28px); font-weight: 700; margin: 6px 0; }
+  .result-box .days { font-size: 15px; margin: 0; }
+  .result-box.is-fresh   { border-left: 6px solid var(--fresh); }
+  .result-box.is-soon    { border-left: 6px solid var(--soon); }
+  .result-box.is-warning { border-left: 6px solid var(--rose); }
+  .result-box.is-expired { border-left: 6px solid var(--expired); }
+  .placeholder { color: var(--ink-soft); font-size: 14px; text-align: center; padding: 20px; }
+
+  .cta {
+    margin-top: 32px; background: var(--lav);
+    border-radius: 16px; padding: 24px clamp(16px, 4vw, 28px); text-align: center;
+  }
+  .cta h3 { margin: 0 0 8px; font-size: 17px; }
+  .cta p { margin: 0 0 18px; font-size: 14px; color: #4a4444; }
+  .store-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .store-links a {
+    display: inline-block; padding: 12px 22px; border-radius: 999px;
+    background: var(--ink); color: #fff; text-decoration: none; font-size: 14px;
+  }
+  .store-links a:hover { opacity: .88; }
+
+  section.faq { margin-top: 40px; }
+  section.faq h3 { font-size: 18px; margin: 0 0 4px; }
+  details {
+    background: #fff; border-radius: 12px; padding: 14px 18px; margin: 10px 0;
+    box-shadow: 0 1px 2px rgba(60,40,50,0.04);
+  }
+  details summary { cursor: pointer; font-size: 15px; font-weight: 600; }
+  details p { font-size: 14px; margin: 10px 0 2px; }
+
+  .table-wrap { overflow-x: auto; margin-top: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border-radius: 12px; }
+  th, td { border-bottom: 1px solid var(--fill); padding: 10px 12px; text-align: left; }
+  th { color: var(--ink-soft); font-weight: 600; }
+
+  .disclaimer {
+    background: var(--fill); border-radius: 12px;
+    padding: 14px 18px; font-size: 13px; color: #4a4444; margin-top: 28px;
+  }
+  footer.meta { margin-top: 36px; text-align: center; color: var(--ink-soft); font-size: 12px; }
+  footer.meta a { color: #8a6b6b; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="brand">
+    <h1>chouchou Dresser</h1>
+    <p>コスメ管理＆使い切り</p>
+  </header>
+
+  <h2 class="page-title">コスメの使用期限チェッカー</h2>
+  <p class="lead">開封日を入れるだけ。登録も送信もなしで、目安の期限がその場でわかります。</p>
+
+  <div class="card">
+    <fieldset>
+      <legend>1. カテゴリを選ぶ</legend>
+      <div class="chips" id="categories" role="group" aria-label="カテゴリ"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><label for="opened">2. 開封日を入れる</label></legend>
+      <input type="date" id="opened" />
+    </fieldset>
+
+    <div id="result" aria-live="polite">
+      <p class="placeholder">カテゴリと開封日を選ぶと、ここに目安が表示されます。</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>毎回計算しなくても、大丈夫にしませんか？</h3>
+    <p>開封日を記録しておくだけで、期限が近づいたらアプリがそっとお知らせします。<br />アカウント登録は不要。データは端末の中だけに保存されます。</p>
+    <div class="store-links">
+      <a href="https://apps.apple.com/jp/app/id6789920473">App Store でみる</a>
+      <a href="https://play.google.com/store/apps/details?id=com.nextcore.chouchou">Google Play でみる</a>
+    </div>
+  </div>
+
+  <section class="faq">
+    <h3>カテゴリ別・開封後の目安</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>カテゴリ</th><th>開封後の目安</th></tr></thead>
+        <tbody id="pao-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h3>よくある質問</h3>
+
+    <details>
+      <summary>マスカラは開封後どのくらいで使い切るべき？</summary>
+      <p>一般的な目安は開封後3か月程度です。まつ毛や目もとに直接触れるため、コスメの中でも短めに見積もられることが多い分類です。液が乾いた、匂いが変わったなど気になる変化があれば、目安より早めに使用を控えてください。</p>
+    </details>
+
+    <details>
+      <summary>リップ・口紅の使用期限の目安は？</summary>
+      <p>一般的な目安は開封後6か月程度です。直接唇に触れるスティックタイプは、見た目に変化がなくても目安を意識しておくと安心です。</p>
+    </details>
+
+    <details>
+      <summary>パウダーアイシャドウは長く使える？</summary>
+      <p>水分をほとんど含まないパウダー製品は比較的長く、一般的な目安は開封後12か月程度とされています。ただしブラシやチップの清潔さが保たれていることが前提です。</p>
+    </details>
+
+    <details>
+      <summary>使用期限を過ぎたコスメはどうすればいい？</summary>
+      <p>ここで示すのはあくまで一般的な参考情報です。保管環境や使い方によって状態は変わります。分離・変色・匂いの変化など気になる点があれば、目安に関わらず使用を控えてください。肌に異常を感じた場合は自己判断せず、皮膚科などの専門家にご相談ください。</p>
+    </details>
+
+    <details>
+      <summary>入力した内容はどこかに送信されますか？</summary>
+      <p>いいえ。計算はすべてこのページの中（お使いのブラウザ内）で完結します。開封日などの入力内容がサーバーへ送信されることはありません。</p>
+    </details>
+  </section>
+
+  <p class="disclaimer">
+    本ページの内容は一般的な参考情報であり、医療・診断・治療を目的としたものではありません。実際の使用可能期間は製品・保管環境・使用方法によって異なります。製品パッケージに記載された表示がある場合は、そちらを優先してください。
+  </p>
+
+  <footer class="meta">
+    <p>
+      <a href="./index.html#privacy">プライバシーポリシー</a> ・
+      <a href="./index.html#terms">利用規約</a>
+    </p>
+    <p>© 2026 NextCore Consulting</p>
+  </footer>
+
+</div>
+
+<script>
+  // カテゴリ別 PAO（開封後の使用可能月数）。
+  // アプリ本体の mobile/src/constants/pao.ts（PAO_MONTHS）と同じ値を保つこと。
+  var PAO_MONTHS = [
+    { key: 'mascara',          label: 'マスカラ',              months: 3 },
+    { key: 'eyeliner',         label: 'アイライナー',          months: 3 },
+    { key: 'lip',              label: 'リップ',                months: 6 },
+    { key: 'foundation',       label: 'ファンデ',              months: 6 },
+    { key: 'skincare',         label: 'スキンケア',            months: 6 },
+    { key: 'cheek',            label: 'チーク',                months: 6 },
+    { key: 'eyeshadow_powder', label: 'パウダーアイシャドウ',  months: 12 },
+    { key: 'other',            label: 'その他',                months: 6 }
+  ];
+
+  // 残日数のシグナル閾値。アプリの SIGNAL_THRESHOLD_DAYS と揃える。
+  var FRESH_DAYS = 90;
+  var SOON_DAYS = 30;
+
+  var selectedKey = null;
+  var categoriesEl = document.getElementById('categories');
+  var openedEl = document.getElementById('opened');
+  var resultEl = document.getElementById('result');
+
+  // チップ描画。
+  PAO_MONTHS.forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip';
+    b.textContent = c.label;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () {
+      selectedKey = c.key;
+      Array.prototype.forEach.call(categoriesEl.children, function (el) {
+        el.setAttribute('aria-pressed', String(el === b));
+      });
+      render();
+    });
+    categoriesEl.appendChild(b);
+  });
+
+  // 目安テーブル描画。
+  var tbody = document.getElementById('pao-table');
+  PAO_MONTHS.forEach(function (c) {
+    var tr = document.createElement('tr');
+    var th = document.createElement('td');
+    var td = document.createElement('td');
+    th.textContent = c.label;
+    td.textContent = '約 ' + c.months + " か月";
+    tr.appendChild(th); tr.appendChild(td);
+    tbody.appendChild(tr);
+  });
+
+  openedEl.addEventListener('change', render);
+
+  /** 月を加算する（月末は丸める。アプリの addMonthsToDate と同じ考え方）。 */
+  function addMonths(date, months) {
+    var d = new Date(date.getTime());
+    var targetMonth = d.getMonth() + months;
+    var lastDayOfTarget = new Date(d.getFullYear(), targetMonth + 1, 0).getDate();
+    if (d.getDate() > lastDayOfTarget) d.setDate(lastDayOfTarget);
+    d.setMonth(targetMonth);
+    return d;
+  }
+
+  function formatDate(d) {
+    return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+  }
+
+  function render() {
+    if (selectedKey === null || !openedEl.value) {
+      resultEl.innerHTML = '<p class="placeholder">カテゴリと開封日を選ぶと、ここに目安が表示されます。</p>';
+      return;
+    }
+
+    var cat = PAO_MONTHS.filter(function (c) { return c.key === selectedKey; })[0];
+    var parts = openedEl.value.split('-');
+    var opened = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    if (isNaN(opened.getTime())) return;
+
+    var expiry = addMonths(opened, cat.months);
+
+    var today = new Date();
+    today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var days = Math.round((expiry - today) / 86400000);
+
+    var cls, msg;
+    if (days < 0) {
+      cls = 'is-expired';
+      msg = '目安の期限を ' + Math.abs(days) + ' 日過ぎています';
+    } else if (days < SOON_DAYS) {
+      cls = 'is-warning';
+      msg = 'あと約 ' + days + ' 日です';
+    } else if (days < FRESH_DAYS) {
+      cls = 'is-soon';
+      msg = 'あと約 ' + days + ' 日です';
+    } else {
+      cls = 'is-fresh';
+      msg = 'あと約 ' + days + ' 日です';
+    }
+
+    resultEl.innerHTML =
+      '<div class="result-box ' + cls + '">' +
+        '<p class="label">' + cat.label + '（開封後 約' + cat.months + 'か月）の目安</p>' +
+        '<p class="date">' + formatDate(expiry) + '</p>' +
+        '<p class="days">' + msg + '</p>' +
+      '</div>';
+  }
+</script>
+</body>
+</html>
